@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.5 on win32)" generated="2025-12-25T10:18:53.013639" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot API Framework" source="D:\Testing Academy\Robot_API_Framework">
+<suite id="s1-s1" name="Tests" source="D:\Testing Academy\Robot_API_Framework\tests">
+<suite id="s1-s1-s1" name="Smoke" source="D:\Testing Academy\Robot_API_Framework\tests\smoke">
+<suite id="s1-s1-s1-s1" name="Health Check" source="D:\Testing Academy\Robot_API_Framework\tests\smoke\health_check.robot">
+<test id="s1-s1-s1-s1-t1" name="Health Check API" line="6">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-12-25T10:18:53.132114" level="INFO">Creating Session using : alias=get_session, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>get_session</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-12-25T10:18:53.131838" elapsed="0.000494"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-12-25T10:18:54.454155" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/ping 
+ path_url=/ping 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-12-25T10:18:54.454268" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/ping 
+ status=201, reason=Created 
+ headers={'Content-Length': '7', 'Content-Type': 'text/plain; charset=utf-8', 'Date': 'Thu, 25 Dec 2025 04:48:54 GMT', 'Etag': 'W/"7-rM9AyJuqT6iOan/xHh+AW+7K/T8"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=BIb37PcPe4kZ21fDiehjzFk1MUzvL9N7E3sFlmxRFiA%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1766638134"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=BIb37PcPe4kZ21fDiehjzFk1MUzvL9N7E3sFlmxRFiA%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1766638134"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body=Created 
+ </msg>
+<msg time="2025-12-25T10:18:54.454341" level="INFO">D:\Testing Academy\Robot_API_Framework\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-12-25T10:18:54.454660" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>get_session</arg>
+<arg>/ping</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-12-25T10:18:53.132867" elapsed="1.321833"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-12-25T10:18:54.456329" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-12-25T10:18:54.455482" elapsed="0.000945"/>
+</kw>
+<status status="PASS" start="2025-12-25T10:18:53.130747" elapsed="1.326501"/>
+</test>
+<status status="PASS" start="2025-12-25T10:18:53.050833" elapsed="1.407967"/>
+</suite>
+<status status="PASS" start="2025-12-25T10:18:53.049516" elapsed="1.410998"/>
+</suite>
+<status status="PASS" start="2025-12-25T10:18:53.048107" elapsed="1.414033"/>
+</suite>
+<status status="PASS" start="2025-12-25T10:18:53.015031" elapsed="1.448338"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Robot API Framework" id="s1" pass="1" fail="0" skip="0">Robot API Framework</stat>
+<stat name="Tests" id="s1-s1" pass="1" fail="0" skip="0">Robot API Framework.Tests</stat>
+<stat name="Smoke" id="s1-s1-s1" pass="1" fail="0" skip="0">Robot API Framework.Tests.Smoke</stat>
+<stat name="Health Check" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">Robot API Framework.Tests.Smoke.Health Check</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
