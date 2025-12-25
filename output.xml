@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.1 (Python 3.13.5 on win32)" generated="2025-12-25T17:28:55.785262" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.1 (Python 3.13.5 on win32)" generated="2025-12-25T17:39:51.210675" rpa="false" schemaversion="5">
 <suite id="s1" name="Robot API Framework" source="D:\Testing Academy\Robot_API_Framework">
 <suite id="s1-s1" name="Src" source="D:\Testing Academy\Robot_API_Framework\src">
 <suite id="s1-s1-s1" name="Tests" source="D:\Testing Academy\Robot_API_Framework\src\tests">
@@ -8,111 +8,127 @@
 <test id="s1-s1-s1-s1-s1-t1" name="Health Check API" line="9">
 <kw name="Create_Current_Session" owner="api_keywords">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-12-25T17:28:55.915627" level="INFO">Creating Session using : alias=created_current_session, url=https://restful-booker.herokuapp.com, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-12-25T17:39:51.329424" level="INFO">Creating Session using : alias=created_current_session, url=https://restful-booker.herokuapp.com, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>created_current_session</arg>
-<arg>url=${URL}</arg>
-<arg>headers=${Headers}</arg>
+<arg>${URL}</arg>
+<arg>${Headers}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-12-25T17:28:55.915266" elapsed="0.000622"/>
+<status status="PASS" start="2025-12-25T17:39:51.329217" elapsed="0.000390"/>
 </kw>
 <return>
 <value>created_current_session</value>
-<status status="PASS" start="2025-12-25T17:28:55.915998" elapsed="0.000059"/>
+<status status="PASS" start="2025-12-25T17:39:51.329686" elapsed="0.000051"/>
 </return>
+<msg time="2025-12-25T17:39:51.329869" level="INFO">${current_session} = created_current_session</msg>
+<var>${current_session}</var>
 <arg>${BASE_URL}</arg>
-<status status="PASS" start="2025-12-25T17:28:55.914333" elapsed="0.001843"/>
+<status status="PASS" start="2025-12-25T17:39:51.328587" elapsed="0.001308"/>
 </kw>
 <kw name="Perform_Health_Check" owner="health_keywords">
 <kw name="Get_API" owner="api_keywords">
 <kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-12-25T17:28:55.917825" level="WARN">You might have an = symbol in url. You better place 'url=' before, example: 'url=/your-url/foo?param=a' or use '/your-url/foo  params=param=a' or escape it</msg>
-<msg time="2025-12-25T17:28:55.918631" level="FAIL">TypeError: RequestsOnSessionKeywords.get_on_session() missing 2 required positional arguments: 'alias' and 'url'</msg>
+<msg time="2025-12-25T17:39:52.622792" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/ping 
+ path_url=/ping 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+ body=None 
+ </msg>
+<msg time="2025-12-25T17:39:52.622900" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/ping 
+ status=201, reason=Created 
+ headers={'Content-Length': '7', 'Content-Type': 'text/plain; charset=utf-8', 'Date': 'Thu, 25 Dec 2025 12:09:52 GMT', 'Etag': 'W/"7-rM9AyJuqT6iOan/xHh+AW+7K/T8"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=CuMsFSo8UqUCQVdfXRGMFbvye0%2FAEytPbmTlBYyBYaU%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1766664592"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=CuMsFSo8UqUCQVdfXRGMFbvye0%2FAEytPbmTlBYyBYaU%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1766664592"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body=Created 
+ </msg>
+<msg time="2025-12-25T17:39:52.622965" level="INFO">D:\Testing Academy\Robot_API_Framework\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-12-25T17:39:52.623282" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <var>${response}</var>
-<arg>session=${session}</arg>
-<arg>endpoint=${endpoint}</arg>
+<arg>${session}</arg>
+<arg>${endpoint}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="FAIL" start="2025-12-25T17:28:55.917590" elapsed="0.001986">TypeError: RequestsOnSessionKeywords.get_on_session() missing 2 required positional arguments: 'alias' and 'url'</status>
+<status status="PASS" start="2025-12-25T17:39:51.331030" elapsed="1.292281"/>
 </kw>
 <return>
 <value>${response}</value>
-<status status="NOT RUN" start="2025-12-25T17:28:55.919735" elapsed="0.000043"/>
+<status status="PASS" start="2025-12-25T17:39:52.623394" elapsed="0.000076"/>
 </return>
+<msg time="2025-12-25T17:39:52.623703" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <var>${response}</var>
 <arg>${session}</arg>
 <arg>/ping</arg>
-<status status="FAIL" start="2025-12-25T17:28:55.917219" elapsed="0.002734">TypeError: RequestsOnSessionKeywords.get_on_session() missing 2 required positional arguments: 'alias' and 'url'</status>
+<status status="PASS" start="2025-12-25T17:39:51.330784" elapsed="1.292956"/>
 </kw>
 <for flavor="IN RANGE">
 <iter>
 <if>
 <branch type="IF" condition="${response.status_code} == 201">
 <kw name="Log" owner="BuiltIn">
+<msg time="2025-12-25T17:39:52.625360" level="INFO">Success on attempt 1</msg>
 <arg>Success on attempt ${i}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-12-25T17:28:55.920553" elapsed="0.000031"/>
+<status status="PASS" start="2025-12-25T17:39:52.624963" elapsed="0.000461"/>
 </kw>
 <kw name="Success">
+<msg time="2025-12-25T17:39:52.626987" level="FAIL">No keyword with name 'Success' found.</msg>
 <var>${result}</var>
-<status status="NOT RUN" start="2025-12-25T17:28:55.920792" elapsed="0.000030"/>
+<status status="FAIL" start="2025-12-25T17:39:52.626942" elapsed="0.000098">No keyword with name 'Success' found.</status>
 </kw>
 <kw name="Exit For Loop" owner="BuiltIn">
 <doc>Stops executing the enclosing FOR loop.</doc>
-<status status="NOT RUN" start="2025-12-25T17:28:55.920946" elapsed="0.000026"/>
+<status status="NOT RUN" start="2025-12-25T17:39:52.627194" elapsed="0.000029"/>
 </kw>
-<status status="NOT RUN" start="2025-12-25T17:28:55.920368" elapsed="0.000643"/>
+<status status="FAIL" start="2025-12-25T17:39:52.624268" elapsed="0.003027">No keyword with name 'Success' found.</status>
 </branch>
 <branch type="ELSE">
 <kw name="UnSuccessful To Check">
 <var>${result}</var>
-<status status="NOT RUN" start="2025-12-25T17:28:55.921208" elapsed="0.000027"/>
+<status status="NOT RUN" start="2025-12-25T17:39:52.627495" elapsed="0.000026"/>
 </kw>
-<status status="NOT RUN" start="2025-12-25T17:28:55.921052" elapsed="0.000225"/>
+<status status="NOT RUN" start="2025-12-25T17:39:52.627346" elapsed="0.000219"/>
 </branch>
-<status status="NOT RUN" start="2025-12-25T17:28:55.920336" elapsed="0.000973"/>
+<status status="FAIL" start="2025-12-25T17:39:52.624237" elapsed="0.003364">No keyword with name 'Success' found.</status>
 </if>
 <kw name="Sleep" owner="BuiltIn">
 <arg>2s</arg>
 <arg>Just So it does not break</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-12-25T17:28:55.921422" elapsed="0.000026"/>
+<status status="NOT RUN" start="2025-12-25T17:39:52.627736" elapsed="0.000026"/>
 </kw>
-<var name="${i}"/>
-<status status="NOT RUN" start="2025-12-25T17:28:55.920277" elapsed="0.001219"/>
+<var name="${i}">1</var>
+<status status="FAIL" start="2025-12-25T17:39:52.624176" elapsed="0.003661">No keyword with name 'Success' found.</status>
 </iter>
 <var>${i}</var>
 <value>1</value>
 <value>4</value>
-<status status="NOT RUN" start="2025-12-25T17:28:55.920079" elapsed="0.001462"/>
+<status status="FAIL" start="2025-12-25T17:39:52.623832" elapsed="0.004088">No keyword with name 'Success' found.</status>
 </for>
 <return>
 <value>Log To Console</value>
 <value>${result}</value>
-<status status="NOT RUN" start="2025-12-25T17:28:55.921608" elapsed="0.000021"/>
+<status status="NOT RUN" start="2025-12-25T17:39:52.628003" elapsed="0.000021"/>
 </return>
-<arg>Create_Current_Session</arg>
-<status status="FAIL" start="2025-12-25T17:28:55.916815" elapsed="0.004961">TypeError: RequestsOnSessionKeywords.get_on_session() missing 2 required positional arguments: 'alias' and 'url'</status>
+<arg>${current_session}</arg>
+<status status="FAIL" start="2025-12-25T17:39:51.330476" elapsed="1.297671">No keyword with name 'Success' found.</status>
 </kw>
 <kw name="Validate_Response_Status_Code" owner="Common_Verification">
 <arg>Get_API</arg>
-<arg>Create_Current_Session</arg>
+<arg>${current_session}</arg>
 <arg>${Health_Check_URL}</arg>
-<status status="NOT RUN" start="2025-12-25T17:28:55.922339" elapsed="0.000038"/>
+<status status="NOT RUN" start="2025-12-25T17:39:52.628989" elapsed="0.000036"/>
 </kw>
 <tag>api</tag>
 <tag>positive</tag>
 <tag>smoke</tag>
-<status status="FAIL" start="2025-12-25T17:28:55.913239" elapsed="0.009601">TypeError: RequestsOnSessionKeywords.get_on_session() missing 2 required positional arguments: 'alias' and 'url'</status>
+<status status="FAIL" start="2025-12-25T17:39:51.327695" elapsed="1.302040">No keyword with name 'Success' found.</status>
 </test>
-<status status="FAIL" start="2025-12-25T17:28:55.827028" elapsed="0.096970"/>
+<status status="FAIL" start="2025-12-25T17:39:51.249137" elapsed="1.382347"/>
 </suite>
-<status status="FAIL" start="2025-12-25T17:28:55.825355" elapsed="0.100207"/>
+<status status="FAIL" start="2025-12-25T17:39:51.247825" elapsed="1.385343"/>
 </suite>
-<status status="FAIL" start="2025-12-25T17:28:55.823456" elapsed="0.103579"/>
+<status status="FAIL" start="2025-12-25T17:39:51.246641" elapsed="1.387981"/>
 </suite>
-<status status="FAIL" start="2025-12-25T17:28:55.822139" elapsed="0.106216"/>
+<status status="FAIL" start="2025-12-25T17:39:51.245375" elapsed="1.391164"/>
 </suite>
-<status status="FAIL" start="2025-12-25T17:28:55.786910" elapsed="0.142879"/>
+<status status="FAIL" start="2025-12-25T17:39:51.212290" elapsed="1.426063"/>
 </suite>
 <statistics>
 <total>
@@ -132,12 +148,11 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2025-12-25T17:28:55.776566" level="WARN">Error in file 'D:\Testing Academy\Robot_API_Framework\src\resources\keywords\api_keywords.robot' on line 9: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-12-25T17:28:55.777453" level="WARN">Error in file 'D:\Testing Academy\Robot_API_Framework\src\resources\keywords\api_keywords.robot' on line 14: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-12-25T17:28:55.780158" level="WARN">Error in file 'D:\Testing Academy\Robot_API_Framework\src\resources\keywords\health_keywords.robot' on line 19: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-12-25T17:28:55.904963" level="WARN">Error in file 'D:\Testing Academy\Robot_API_Framework\src\resources\keywords\api_keywords.robot' on line 9: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-12-25T17:28:55.905660" level="WARN">Error in file 'D:\Testing Academy\Robot_API_Framework\src\resources\keywords\api_keywords.robot' on line 14: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-12-25T17:28:55.909976" level="WARN">Error in file 'D:\Testing Academy\Robot_API_Framework\src\resources\keywords\health_keywords.robot' on line 19: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-12-25T17:28:55.917825" level="WARN">You might have an = symbol in url. You better place 'url=' before, example: 'url=/your-url/foo?param=a' or use '/your-url/foo  params=param=a' or escape it</msg>
+<msg time="2025-12-25T17:39:51.202342" level="WARN">Error in file 'D:\Testing Academy\Robot_API_Framework\src\resources\keywords\api_keywords.robot' on line 9: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-12-25T17:39:51.203029" level="WARN">Error in file 'D:\Testing Academy\Robot_API_Framework\src\resources\keywords\api_keywords.robot' on line 14: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-12-25T17:39:51.205748" level="WARN">Error in file 'D:\Testing Academy\Robot_API_Framework\src\resources\keywords\health_keywords.robot' on line 21: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-12-25T17:39:51.321276" level="WARN">Error in file 'D:\Testing Academy\Robot_API_Framework\src\resources\keywords\api_keywords.robot' on line 9: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-12-25T17:39:51.321938" level="WARN">Error in file 'D:\Testing Academy\Robot_API_Framework\src\resources\keywords\api_keywords.robot' on line 14: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-12-25T17:39:51.325266" level="WARN">Error in file 'D:\Testing Academy\Robot_API_Framework\src\resources\keywords\health_keywords.robot' on line 21: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>

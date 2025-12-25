@@ -8,9 +8,9 @@ Resource    ../../resources/variables/variables.robot
 *** Test Cases ***
 Health Check API
     [Tags]    smoke    api    positive
-    Create_Current_Session    ${BASE_URL}
-    Perform_Health_Check    Create_Current_Session
-    Validate_Response_Status_Code    Get_API    Create_Current_Session    ${Health_Check_URL}
+    ${current_session}=    Create_Current_Session    ${BASE_URL}
+    Perform_Health_Check    ${current_session}
+    Validate_Response_Status_Code    Get_API    ${current_session}    ${Health_Check_URL}
 
 
     
