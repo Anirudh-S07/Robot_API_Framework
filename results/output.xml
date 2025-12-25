@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.5 on win32)" generated="2025-12-25T14:34:33.515101" rpa="false" schemaversion="5">
+<suite id="s1" name="Src" source="D:\Testing Academy\Robot_API_Framework\src">
+<suite id="s1-s1" name="Tests" source="D:\Testing Academy\Robot_API_Framework\src\tests">
+<suite id="s1-s1-s1" name="Smoke" source="D:\Testing Academy\Robot_API_Framework\src\tests\smoke">
+<suite id="s1-s1-s1-s1" name="Health Check" source="D:\Testing Academy\Robot_API_Framework\src\tests\smoke\health_check.robot">
+<test id="s1-s1-s1-s1-t1" name="Health Check API" line="6">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-12-25T14:34:33.627161" level="INFO">Creating Session using : alias=get_session, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>get_session</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-12-25T14:34:33.626980" elapsed="0.000362"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-12-25T14:34:35.236932" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/ping 
+ path_url=/ping 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-12-25T14:34:35.237366" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/ping 
+ status=201, reason=Created 
+ headers={'Content-Length': '7', 'Content-Type': 'text/plain; charset=utf-8', 'Date': 'Thu, 25 Dec 2025 09:04:35 GMT', 'Etag': 'W/"7-rM9AyJuqT6iOan/xHh+AW+7K/T8"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=eDpOb5625esb0EwF9OSYDmsnU%2BufP2YUx6uHGGkenz8%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1766653475"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=eDpOb5625esb0EwF9OSYDmsnU%2BufP2YUx6uHGGkenz8%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1766653475"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body=Created 
+ </msg>
+<msg time="2025-12-25T14:34:35.237665" level="INFO">D:\Testing Academy\Robot_API_Framework\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-12-25T14:34:35.238666" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>get_session</arg>
+<arg>/ping</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-12-25T14:34:33.627658" elapsed="1.611229"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-12-25T14:34:35.242412" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-12-25T14:34:35.239999" elapsed="0.002678"/>
+</kw>
+<tag>api</tag>
+<tag>positive</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2025-12-25T14:34:33.626159" elapsed="1.617418"/>
+</test>
+<test id="s1-s1-s1-s1-t2" name="Health Check API Negative" line="12">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-12-25T14:34:35.248375" level="INFO">Creating Session using : alias=get_session, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>get_session</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-12-25T14:34:35.247795" elapsed="0.001230"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-12-25T14:34:36.874492" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/redf 
+ path_url=/redf 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-12-25T14:34:36.874847" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/redf 
+ status=404, reason=Not Found 
+ headers={'Content-Length': '9', 'Content-Type': 'text/plain; charset=utf-8', 'Date': 'Thu, 25 Dec 2025 09:04:36 GMT', 'Etag': 'W/"9-0gXL1ngzMqISxa6S1zx3F4wtLyg"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=8jP8oVPtMCKaKkNI%2F0Kzf99oDG0rz%2BzWL6eA%2BNpnSGc%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1766653476"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=8jP8oVPtMCKaKkNI%2F0Kzf99oDG0rz%2BzWL6eA%2BNpnSGc%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1766653476"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body=Not Found 
+ </msg>
+<msg time="2025-12-25T14:34:36.875127" level="INFO">D:\Testing Academy\Robot_API_Framework\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-12-25T14:34:36.876081" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>get_session</arg>
+<arg>/redf</arg>
+<arg>expected_status=404</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-12-25T14:34:35.250016" elapsed="1.626207"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-12-25T14:34:36.879504" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>404</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-12-25T14:34:36.877273" elapsed="0.002485"/>
+</kw>
+<tag>api</tag>
+<tag>negative</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2025-12-25T14:34:35.246083" elapsed="1.634706"/>
+</test>
+<status status="PASS" start="2025-12-25T14:34:33.549641" elapsed="3.332200"/>
+</suite>
+<status status="PASS" start="2025-12-25T14:34:33.548518" elapsed="3.334559"/>
+</suite>
+<status status="PASS" start="2025-12-25T14:34:33.547410" elapsed="3.336848"/>
+</suite>
+<status status="PASS" start="2025-12-25T14:34:33.516548" elapsed="3.368836"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">api</stat>
+<stat pass="1" fail="0" skip="0">negative</stat>
+<stat pass="1" fail="0" skip="0">positive</stat>
+<stat pass="2" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Src" id="s1" pass="2" fail="0" skip="0">Src</stat>
+<stat name="Tests" id="s1-s1" pass="2" fail="0" skip="0">Src.Tests</stat>
+<stat name="Smoke" id="s1-s1-s1" pass="2" fail="0" skip="0">Src.Tests.Smoke</stat>
+<stat name="Health Check" id="s1-s1-s1-s1" pass="2" fail="0" skip="0">Src.Tests.Smoke.Health Check</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
