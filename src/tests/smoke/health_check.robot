@@ -1,6 +1,6 @@
 *** Settings ***
 Library    RequestsLibrary
-Resource    ../../resources/keywords/api_keywords.robot
+
 Resource    ../../resources/keywords/health_keywords.robot
 Resource    ../../resources/keywords/Common_Verification.robot
 Resource    ../../resources/variables/variables.robot
@@ -8,9 +8,10 @@ Resource    ../../resources/variables/variables.robot
 *** Test Cases ***
 Health Check API
     [Tags]    smoke    api    positive
-    ${current_session}=    Create_API_Session    ${BASE_URL}
-    Perform_Health_Check    ${current_session}
-    Validate_Response_Status_Code    Get_API    201
+    ${response}=    Perform_Health_Check    ${BASE_URL}
+    Log To Console    ${response.status_code}
+    Validate_Response_Status_Code    ${response}    201
+    Validate_Response_Is_Not_Empty    ${response}
 
 
     

@@ -1,13 +1,12 @@
 *** Settings ***
 Resource    api_keywords.robot
-
+Resource    ../variables/variables.robot
 
 *** Keywords ***
 Perform_Health_Check
-    [Arguments]    ${session}
-    ${response}=    Get_Request
-    ...    ${session}
-    ...    /ping
+    [Arguments]    ${URL}
+    Create_API_Session    ${URL}
+    ${response}=    Get_Request    ${Health_Check_URL_Endpoint}
     FOR    ${i}    IN RANGE    1    4
         IF    ${response.status_code} == 201
             Log    Success on attempt ${i}
@@ -18,7 +17,7 @@ Perform_Health_Check
         END
         Sleep    2s    Just So it does not break
     END
-    RETURN    Log To Console    ${result}
+    RETURN    ${response}
 
 
 
