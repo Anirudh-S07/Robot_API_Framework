@@ -11,4 +11,4 @@ Health Check API
 Health Check API Negative
     Create Session    get_session    ${BASE_URL}
     ${response}=    GET On Session  get_session    /redf
-    Should Not Be Equal As Integers    ${response.status_code}    201
+    Should Be Equal As Integers    ${response.status_code}    404
