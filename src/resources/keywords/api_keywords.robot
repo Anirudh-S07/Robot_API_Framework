@@ -3,15 +3,15 @@ Library    RequestsLibrary
 Resource    ../variables/variables.robot
 
 *** Keywords ***
-Create_Current_Session
+Create_API_Session
     [Arguments]    ${URL}    ${Headers}=&{Common_Headers_Json}
     Create Session    created_current_session    ${URL}    ${Headers}
-    [Return]    created_current_session
+    RETURN    created_current_session
     
-Get_API
+Get_Request
     [Arguments]    ${session}    ${endpoint}
     ${response}=    GET On Session    ${session}    ${endpoint}    expected_status=any
-    [Return]    ${response}
+    RETURN    ${response}
 #
 #Post_API
 #    [Arguments]    session    endpoint    expected_status=any
